@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=3 uid="uid://chbncjvr7p366"]
+
+[ext_resource type="Texture2D" uid="uid://cftuj5rfaruvg" path="res://Sprites/ChargePistol.png" id="1_dwk05"]
+[ext_resource type="FontFile" uid="uid://fuu286rsfkbf" path="res://Fonts/smallest_pixel-7.ttf" id="1_vuhu3"]
+[ext_resource type="Script" path="res://Scenes/node.gd" id="3_6b5dt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4awgn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3r3oj"]
+bg_color = Color(0, 0, 0, 0.729412)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1y62o"]
+bg_color = Color(0, 0, 0, 0)
+draw_center = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_jbnhc"]
+font = ExtResource("1_vuhu3")
+font_size = 21
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4abl"]
+bg_color = Color(0.615504, 0.626806, 0.644018, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21gg7"]
+bg_color = Color(0.101961, 0.603922, 0.72549, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[node name="InventoryUIPanel" type="Control"]
+z_index = 5
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 206.0
+offset_bottom = 36.0
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 206.0
+offset_bottom = 35.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4awgn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3r3oj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1y62o")
+button_mask = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 6.0
+offset_right = 204.0
+offset_bottom = 33.0
+text = "TESTESTSETSETSET"
+label_settings = SubResource("LabelSettings_jbnhc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DisplayPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 36.0
+offset_bottom = 36.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h4abl")
+
+[node name="Sprite2D" type="Sprite2D" parent="DisplayPanel"]
+texture_filter = 1
+position = Vector2(18, 18)
+scale = Vector2(2.26563, 2.26563)
+texture = ExtResource("1_dwk05")
+
+[node name="TextPanel" type="Panel" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 206.0
+offset_bottom = 35.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_21gg7")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("3_6b5dt")

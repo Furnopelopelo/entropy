@@ -1,0 +1,93 @@
+[gd_scene load_steps=12 format=3 uid="uid://iqlb1nn0jvcq"]
+
+[ext_resource type="Texture2D" uid="uid://dnroivqcknoyn" path="res://Sprites/Jukebox.png" id="1_gvm6q"]
+[ext_resource type="Script" path="res://Scripts/jukebox.gd" id="1_iy3uc"]
+[ext_resource type="Script" path="res://Scripts/Components/interaction_component.gd" id="2_y308j"]
+[ext_resource type="Script" path="res://Scripts/Components/outline_component.gd" id="3_kk0wu"]
+[ext_resource type="Texture2D" uid="uid://kum2mk0452qx" path="res://Sprites/Note.png" id="5_n57kp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2c00"]
+size = Vector2(14, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fhwsr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gvm6q")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j4sc2"]
+radius = 28.0
+
+[sub_resource type="Curve" id="Curve_0mnpn"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 10.989), 0.0, 0.0, 0, 0, Vector2(0.173333, 2.19778), -79.9201, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wd4vp"]
+curve = SubResource("Curve_0mnpn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_decv3"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 2.8
+linear_accel_max = 7.25
+linear_accel_curve = SubResource("CurveTexture_wd4vp")
+turbulence_enabled = true
+turbulence_noise_strength = 14.68
+turbulence_noise_speed = Vector3(0, 1.295, 0)
+turbulence_noise_speed_random = 1.31
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.041
+turbulence_initial_displacement_min = 1.49012e-06
+turbulence_initial_displacement_max = 7.1
+
+[node name="Jukebox" type="StaticBody2D"]
+y_sort_enabled = true
+texture_filter = 1
+script = ExtResource("1_iy3uc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_t2c00")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -15)
+sprite_frames = SubResource("SpriteFrames_fhwsr")
+animation = &"Idle"
+
+[node name="InteractionComponent" type="Area2D" parent="." node_paths=PackedStringArray("outline_component")]
+position = Vector2(0, -15)
+script = ExtResource("2_y308j")
+outline_component = NodePath("../OutlineComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponent"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_j4sc2")
+
+[node name="OutlineComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("3_kk0wu")
+actor = NodePath("../AnimatedSprite2D")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = 20
+texture_filter = 1
+position = Vector2(0, -27)
+emitting = false
+amount = 2
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_decv3")
+texture = ExtResource("5_n57kp")
+lifetime = 2.0
+speed_scale = 0.8
+
+[connection signal="interacting" from="InteractionComponent" to="." method="_on_interaction_component_interacting"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

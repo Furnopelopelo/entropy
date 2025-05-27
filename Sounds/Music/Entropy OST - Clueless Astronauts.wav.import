@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dn64nt7rv7gt0"
+path="res://.godot/imported/Entropy OST - Clueless Astronauts.wav-44d05575b9f344b90773173cae41b068.sample"
+
+[deps]
+
+source_file="res://Sounds/Music/Entropy OST - Clueless Astronauts.wav"
+dest_files=["res://.godot/imported/Entropy OST - Clueless Astronauts.wav-44d05575b9f344b90773173cae41b068.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

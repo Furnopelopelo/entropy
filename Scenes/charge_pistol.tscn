@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://v6m0dwwwsweu"]
+
+[ext_resource type="Script" path="res://Scripts/charge_pistol.gd" id="1_eiyrt"]
+[ext_resource type="Texture2D" uid="uid://cftuj5rfaruvg" path="res://Sprites/ChargePistol.png" id="1_hrtc3"]
+[ext_resource type="Script" path="res://Scripts/Components/spawner_component.gd" id="3_iqtdr"]
+[ext_resource type="PackedScene" uid="uid://b0jg2u17ylrnx" path="res://Scenes/charge_bullet.tscn" id="4_1hmiy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ukpcx"]
+radius = 8.06226
+
+[node name="ChargePistol" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_eiyrt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hrtc3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ukpcx")
+
+[node name="ShootingPoint" type="Node2D" parent="."]
+position = Vector2(6, 0)
+
+[node name="SpawnerComponent" type="Node2D" parent="."]
+script = ExtResource("3_iqtdr")
+scene = ExtResource("4_1hmiy")
+
+[node name="FirerateTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

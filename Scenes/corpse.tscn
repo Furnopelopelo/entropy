@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5sqxucg3wxo8"]
+
+[ext_resource type="Script" path="res://corpse.gd" id="1_eugjk"]
+[ext_resource type="Texture2D" uid="uid://cyxk4i5xus6tl" path="res://Sprites/Hand.png" id="2_rtp8k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6pvis"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"Corpse",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_51kbn"]
+radius = 16.0
+
+[node name="Corpse" type="Area2D"]
+z_index = -5
+z_as_relative = false
+script = ExtResource("1_eugjk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_6pvis")
+animation = &"Corpse"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_51kbn")
+
+[node name="HandSprite" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(0, -6)
+texture = ExtResource("2_rtp8k")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

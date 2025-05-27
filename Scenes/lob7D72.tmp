@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=4 uid="uid://c0emh8ghyjahn"]
+
+[ext_resource type="PackedScene" uid="uid://cbyyvvyat86w5" path="res://Scenes/player.tscn" id="1_4leii"]
+[ext_resource type="Texture2D" uid="uid://bv411jtkvha5n" path="res://Sprites/Walls-Sheet.png" id="2_680p0"]
+[ext_resource type="PackedScene" uid="uid://v6m0dwwwsweu" path="res://Scenes/charge_pistol.tscn" id="3_n651o"]
+[ext_resource type="PackedScene" uid="uid://c28egmqahn8xt" path="res://Scenes/inventory_ui.tscn" id="4_w6w7q"]
+[ext_resource type="PackedScene" uid="uid://d7lp4s0ykvwy" path="res://Scenes/popup_menu.tscn" id="5_hjbis"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eldtb"]
+texture = ExtResource("2_680p0")
+2:0/0 = 0
+2:0/0/y_sort_origin = 7
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/y_sort_origin = 7
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/y_sort_origin = 7
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/y_sort_origin = 7
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/y_sort_origin = 7
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/y_sort_origin = 7
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/y_sort_origin = 7
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/y_sort_origin = 7
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+2:3/0/y_sort_origin = 7
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:3/0 = 0
+4:3/0/y_sort_origin = 7
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0 = 0
+5:3/0/y_sort_origin = 7
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0 = 0
+0:0/0/y_sort_origin = 7
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_votjc"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_eldtb")
+
+[node name="Lobby" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_4leii")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4.2, 4.2)
+position_smoothing_enabled = true
+
+[node name="WallsLayer" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+texture_filter = 1
+tile_map_data = PackedByteArray("AAD6//3/AAAEAAAAAAD6//7/AAAAAAEAAAD6////AAAAAAEAAAD6/wAAAAAAAAEAAAD6/wEAAAAAAAEAAAD6/wIAAAAAAAEAAAD6/wMAAAAEAAEAAAD7/wMAAAAEAAMAAAD8/wMAAAAEAAMAAAD9/wMAAAAEAAMAAAD+/wMAAAAEAAMAAAD//wMAAAAEAAMAAAAAAAMAAAAEAAMAAAABAAMAAAAEAAMAAAAEAAMAAAAEAAMAAAAFAAMAAAAEAAMAAAACAAMAAAAEAAMAAAADAAMAAAAEAAMAAAAGAAMAAAAEAAMAAAAHAAMAAAAFAAEAAAAHAAIAAAAAAAEAAAAHAAEAAAAAAAEAAAAHAAAAAAAAAAEAAAAHAP//AAAAAAEAAAAHAP7/AAAAAAEAAAAHAP3/AAAAAAEAAAAHAPz/AAAAAAEAAAAHAPv/AAAAAAEAAAAHAPr/AAAAAAEAAAAHAPn/AAAAAAEAAAAHAPj/AAAFAAAAAAAGAPj/AAAEAAMAAAAFAPj/AAAEAAMAAAAEAPj/AAAEAAMAAAADAPj/AAAEAAMAAAACAPj/AAAEAAMAAAABAPj/AAAEAAMAAAAAAPj/AAAEAAMAAAD///j/AAAEAAMAAAD+//j/AAAEAAAAAAD+//n/AAAAAAEAAAD+//r/AAAAAAEAAAD+//v/AAAAAAEAAAD+//z/AAAAAAEAAAD+//3/AAAFAAEAAAD9//3/AAAEAAMAAAD8//3/AAAEAAMAAAD7//3/AAAEAAMAAAA=")
+tile_set = SubResource("TileSet_votjc")
+
+[node name="ChargePistol" parent="." instance=ExtResource("3_n651o")]
+position = Vector2(15, 5)
+
+[node name="InventoryUI" parent="." instance=ExtResource("4_w6w7q")]
+
+[node name="PopupMenu" parent="." instance=ExtResource("5_hjbis")]
+visible = false
+unfocusable = false

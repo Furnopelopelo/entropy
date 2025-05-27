@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://jbi5y6wbqvty"]
+
+[ext_resource type="Texture2D" uid="uid://b40ywt3lg8tqp" path="res://Sprites/Toilet.png" id="1_oc5ox"]
+[ext_resource type="Script" path="res://Scripts/Components/interaction_component.gd" id="2_3sg24"]
+[ext_resource type="Script" path="res://Scripts/Components/outline_component.gd" id="3_6ubmt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nhqxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_oc5ox")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fp75f"]
+size = Vector2(12, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_248es"]
+radius = 13.0
+
+[node name="Toilet" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -15)
+sprite_frames = SubResource("SpriteFrames_nhqxu")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_fp75f")
+
+[node name="InteractionComponent" type="Area2D" parent="." node_paths=PackedStringArray("outline_component")]
+position = Vector2(0, -15)
+script = ExtResource("2_3sg24")
+outline_component = NodePath("../OutlineComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponent"]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_248es")
+
+[node name="OutlineComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("3_6ubmt")
+actor = NodePath("../AnimatedSprite2D")

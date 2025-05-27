@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://kc2fi5eyiciq"]
+
+[ext_resource type="Script" path="res://Scenes/control_center.gd" id="1_ejb35"]
+[ext_resource type="Texture2D" uid="uid://8w7hlus3x582" path="res://Sprites/ControlCenter-Sheet.png" id="1_t7tka"]
+[ext_resource type="Script" path="res://Scripts/Components/interaction_component.gd" id="2_qlfkc"]
+[ext_resource type="Script" path="res://Scripts/Components/outline_component.gd" id="3_6xeet"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uu76j"]
+atlas = ExtResource("1_t7tka")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4q3xc"]
+atlas = ExtResource("1_t7tka")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtm3j"]
+atlas = ExtResource("1_t7tka")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmclq"]
+atlas = ExtResource("1_t7tka")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8elk5"]
+atlas = ExtResource("1_t7tka")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ew35y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uu76j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4q3xc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtm3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmclq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8elk5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oys31"]
+size = Vector2(46, 29)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ymp4"]
+radius = 42.0119
+
+[node name="ControlCenter" type="StaticBody2D"]
+z_index = 5
+position = Vector2(0, -4)
+script = ExtResource("1_ejb35")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -5
+texture_filter = 1
+position = Vector2(0, 4)
+sprite_frames = SubResource("SpriteFrames_ew35y")
+autoplay = "default"
+frame_progress = 0.139979
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 5
+y_sort_enabled = true
+position = Vector2(0, 10.5)
+shape = SubResource("RectangleShape2D_oys31")
+
+[node name="InteractionComponent" type="Area2D" parent="." node_paths=PackedStringArray("outline_component")]
+position = Vector2(0, 4)
+script = ExtResource("2_qlfkc")
+outline_component = NodePath("../OutlineComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponent"]
+shape = SubResource("CircleShape2D_7ymp4")
+
+[node name="OutlineComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("3_6xeet")
+actor = NodePath("../AnimatedSprite2D")
+
+[connection signal="interacting" from="InteractionComponent" to="." method="_on_interaction_component_interacting"]
+[connection signal="stopped_interacting" from="InteractionComponent" to="." method="_on_interaction_component_stopped_interacting"]

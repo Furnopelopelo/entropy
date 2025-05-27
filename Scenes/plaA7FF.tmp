@@ -1,0 +1,105 @@
+[gd_scene load_steps=12 format=3 uid="uid://cbyyvvyat86w5"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_7xlu7"]
+[ext_resource type="Texture2D" uid="uid://d2fql4b0wbfwx" path="res://Sprites/Astronaut-Sheet.png" id="1_owqxx"]
+[ext_resource type="Script" path="res://Scripts/Components/inventory_component.gd" id="4_5e7ua"]
+[ext_resource type="Script" path="res://Scripts/Components/health_component.gd" id="4_h70ni"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3cy6"]
+atlas = ExtResource("1_owqxx")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhbci"]
+atlas = ExtResource("1_owqxx")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynaku"]
+atlas = ExtResource("1_owqxx")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypwls"]
+atlas = ExtResource("1_owqxx")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lv2kl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3cy6")
+}],
+"loop": true,
+"name": &"Back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhbci")
+}],
+"loop": true,
+"name": &"Front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynaku")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypwls")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ge1wx"]
+radius = 6.0
+
+[sub_resource type="GDScript" id="GDScript_5t4fv"]
+script/source = "class_name MoveComponent
+extends Node
+
+@export var actor: Node2D
+@export var speed: int = 5000
+
+var direction: Vector2
+
+func _process(delta):
+	actor.velocity += direction * delta * speed
+	actor.velocity /= 1.5
+	
+	actor.move_and_slide()
+"
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_7xlu7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_lv2kl")
+animation = &"Front"
+autoplay = "Front"
+
+[node name="RotationPivot" type="Node2D" parent="."]
+
+[node name="Hand" type="Node2D" parent="RotationPivot"]
+position = Vector2(13, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9)
+shape = SubResource("CircleShape2D_ge1wx")
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = SubResource("GDScript_5t4fv")
+actor = NodePath("..")
+speed = null
+
+[node name="InventoryComponent" type="Node" parent="."]
+script = ExtResource("4_5e7ua")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("4_h70ni")

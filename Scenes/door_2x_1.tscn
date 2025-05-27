@@ -1,0 +1,165 @@
+[gd_scene load_steps=23 format=3 uid="uid://b0aqdk6pigx2w"]
+
+[ext_resource type="Texture2D" uid="uid://cos2ltouulwcd" path="res://Sprites/Doors2x1-Sheet.png" id="1_22ion"]
+[ext_resource type="Script" path="res://Scripts/door_2x1.gd" id="1_rxf7v"]
+[ext_resource type="Shader" path="res://Shaders/white_outline.gdshader" id="2_aiam8"]
+[ext_resource type="AudioStream" uid="uid://b4nd1uavqf4lf" path="res://Sounds/SFX/Door-Open.wav" id="4_h6o15"]
+[ext_resource type="AudioStream" uid="uid://bcfrj62i65ym" path="res://Sounds/SFX/Door-Close.wav" id="5_k83wy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sl6fw"]
+radius = 31.0161
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_foiqg"]
+resource_local_to_scene = true
+shader = ExtResource("2_aiam8")
+shader_parameter/outline_color = Vector4(7.12, 7.64, 21.81, -5.305)
+shader_parameter/outline_enabled = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igxh5"]
+atlas = ExtResource("1_22ion")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2ekf"]
+atlas = ExtResource("1_22ion")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwfce"]
+atlas = ExtResource("1_22ion")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60pf6"]
+atlas = ExtResource("1_22ion")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y61rm"]
+atlas = ExtResource("1_22ion")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vf68x"]
+atlas = ExtResource("1_22ion")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvn88"]
+atlas = ExtResource("1_22ion")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xo3cp"]
+atlas = ExtResource("1_22ion")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg831"]
+atlas = ExtResource("1_22ion")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_762x6"]
+atlas = ExtResource("1_22ion")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmcxd"]
+atlas = ExtResource("1_22ion")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdta1"]
+atlas = ExtResource("1_22ion")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_837hx"]
+atlas = ExtResource("1_22ion")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6voox"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igxh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2ekf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwfce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60pf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y61rm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vf68x")
+}],
+"loop": false,
+"name": &"Close",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvn88")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xo3cp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sg831")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_762x6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmcxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdta1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_837hx")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8q4mf"]
+size = Vector2(32, 24)
+
+[node name="Door2x2" type="StaticBody2D"]
+position = Vector2(0, -5)
+script = ExtResource("1_rxf7v")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, 0)
+shape = SubResource("CircleShape2D_sl6fw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_foiqg")
+position = Vector2(8, -3)
+sprite_frames = SubResource("SpriteFrames_6voox")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(8, 1)
+shape = SubResource("RectangleShape2D_8q4mf")
+
+[node name="DoorOpenSfx" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(8, 0)
+stream = ExtResource("4_h6o15")
+volume_db = -3.0
+pitch_scale = 0.92
+
+[node name="DoorCloseSfx" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(16, 0)
+stream = ExtResource("5_k83wy")
+volume_db = -3.0
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

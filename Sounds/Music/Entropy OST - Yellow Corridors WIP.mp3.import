@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cilylxo0eg5kw"
+path="res://.godot/imported/Entropy OST - Yellow Corridors WIP.mp3-ba18f44af22bb537474a6f82fc64d6ec.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Music/Entropy OST - Yellow Corridors WIP.mp3"
+dest_files=["res://.godot/imported/Entropy OST - Yellow Corridors WIP.mp3-ba18f44af22bb537474a6f82fc64d6ec.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

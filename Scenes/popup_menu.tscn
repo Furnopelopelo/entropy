@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://d7lp4s0ykvwy"]
+
+[ext_resource type="Script" path="res://Scripts/popup_menu.gd" id="1_srab5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trlat"]
+bg_color = Color(0.101961, 0.603922, 0.72549, 0.623529)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1705t"]
+bg_color = Color(0, 0, 0, 0.654902)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.858824, 0.858824, 0.858824, 0.854902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3gmm"]
+bg_color = Color(0, 0, 0, 0.752941)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5f5l"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rv5dr"]
+bg_color = Color(0, 0, 0, 0)
+
+[node name="PopupMenu" type="PopupMenu"]
+size = Vector2i(200, 31)
+visible = true
+unfocusable = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_trlat")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1705t")
+theme_override_styles/separator = SubResource("StyleBoxFlat_p3gmm")
+theme_override_styles/labeled_separator_left = SubResource("StyleBoxFlat_q5f5l")
+theme_override_styles/labeled_separator_right = SubResource("StyleBoxFlat_rv5dr")
+script = ExtResource("1_srab5")
+
+[connection signal="id_pressed" from="." to="." method="_on_id_pressed"]
+[connection signal="index_pressed" from="." to="." method="_on_index_pressed"]
