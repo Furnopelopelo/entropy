@@ -1,8 +1,8 @@
 [gd_scene load_steps=23 format=3 uid="uid://b0aqdk6pigx2w"]
 
 [ext_resource type="Texture2D" uid="uid://cos2ltouulwcd" path="res://Sprites/Doors2x1-Sheet.png" id="1_22ion"]
-[ext_resource type="Script" path="res://Scripts/door_2x1.gd" id="1_rxf7v"]
-[ext_resource type="Shader" path="res://Shaders/white_outline.gdshader" id="2_aiam8"]
+[ext_resource type="Script" uid="uid://dles7ysbfjh3p" path="res://Scripts/door_2x1.gd" id="1_rxf7v"]
+[ext_resource type="Shader" uid="uid://doiwshaooqmgk" path="res://Shaders/white_outline.gdshader" id="2_aiam8"]
 [ext_resource type="AudioStream" uid="uid://b4nd1uavqf4lf" path="res://Sounds/SFX/Door-Open.wav" id="4_h6o15"]
 [ext_resource type="AudioStream" uid="uid://bcfrj62i65ym" path="res://Sounds/SFX/Door-Close.wav" id="5_k83wy"]
 

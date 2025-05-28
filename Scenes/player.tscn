@@ -1,33 +1,34 @@
-[gd_scene load_steps=18 format=3 uid="uid://cbyyvvyat86w5"]
+[gd_scene load_steps=19 format=3 uid="uid://cbyyvvyat86w5"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_7xlu7"]
-[ext_resource type="Texture2D" uid="uid://d2jfxrbh3h3q5" path="res://Sprites/AstronautaNew-Sheet.png" id="2_c2ei7"]
-[ext_resource type="Script" path="res://Scripts/Components/move_component.gd" id="3_b54qv"]
-[ext_resource type="Script" path="res://Scripts/Components/inventory_component.gd" id="4_5e7ua"]
-[ext_resource type="Script" path="res://Scripts/Components/health_component.gd" id="4_h70ni"]
-[ext_resource type="Script" path="res://Scripts/Components/move_animation_component.gd" id="6_h7mq5"]
+[ext_resource type="Script" uid="uid://do5yjhvppau6t" path="res://Scripts/player.gd" id="1_7xlu7"]
+[ext_resource type="Texture2D" uid="uid://bxyxxuysg3ri2" path="res://Sprites/AstronautSheet.png" id="2_3smsa"]
+[ext_resource type="Script" uid="uid://cfxdxycv7rpmv" path="res://Scripts/Components/move_component.gd" id="3_b54qv"]
+[ext_resource type="Script" uid="uid://cmiitbetg13xm" path="res://Scripts/Components/inventory_component.gd" id="4_5e7ua"]
+[ext_resource type="Script" uid="uid://pbi6w6th1xe2" path="res://Scripts/Components/health_component.gd" id="4_h70ni"]
+[ext_resource type="Script" uid="uid://b0ktayxvopgxn" path="res://Scripts/shipControls.gd" id="6_3smsa"]
+[ext_resource type="Script" uid="uid://bhwuhvjxhnbhw" path="res://Scripts/Components/move_animation_component.gd" id="6_h7mq5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jce87"]
-atlas = ExtResource("2_c2ei7")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
+atlas = ExtResource("2_3smsa")
 region = Rect2(32, 0, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qxy4c"]
-atlas = ExtResource("2_c2ei7")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
+atlas = ExtResource("2_3smsa")
 region = Rect2(0, 0, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_thew5"]
-atlas = ExtResource("2_c2ei7")
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ek2"]
+atlas = ExtResource("2_3smsa")
 region = Rect2(48, 0, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f388v"]
-atlas = ExtResource("2_c2ei7")
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx1dd"]
+atlas = ExtResource("2_3smsa")
 region = Rect2(16, 0, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lv2kl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jce87")
+"texture": SubResource("AtlasTexture_3smsa")
 }],
 "loop": true,
 "name": &"Back",
@@ -35,7 +36,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qxy4c")
+"texture": SubResource("AtlasTexture_8erm5")
 }],
 "loop": true,
 "name": &"Front",
@@ -43,7 +44,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_thew5")
+"texture": SubResource("AtlasTexture_f1ek2")
 }],
 "loop": true,
 "name": &"Left",
@@ -51,7 +52,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f388v")
+"texture": SubResource("AtlasTexture_tx1dd")
 }],
 "loop": true,
 "name": &"Right",
@@ -75,28 +76,6 @@ tracks/0/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:position:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:position:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-16, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
 
 [sub_resource type="Animation" id="Animation_aj8j8"]
 resource_name = "Left"
@@ -112,28 +91,6 @@ tracks/0/keys = {
 "points": PackedFloat32Array(0, -0.125, 0, 0.125, 0, -0.0523599, -0.125, 0, 0.125, 0),
 "times": PackedFloat32Array(0, 0.2)
 }
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:position:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.125, 0, 0.125, 0, -1, -0.125, 0, 0.125, 0),
-"times": PackedFloat32Array(0, 0.2)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:position:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-16, -0.125, 0, 0.125, 0, -16, -0.125, 0, 0.125, 0),
-"times": PackedFloat32Array(0, 0.2)
-}
 
 [sub_resource type="Animation" id="Animation_v3i27"]
 length = 0.001
@@ -146,28 +103,6 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:position:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:position:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-16, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 
@@ -185,35 +120,13 @@ tracks/0/keys = {
 "points": PackedFloat32Array(0, -0.125, 0, 0.125, 0, 0.0523599, -0.125, 0, 0.125, 0),
 "times": PackedFloat32Array(0, 0.2)
 }
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:position:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.125, 0, 0.125, 0, 1, -0.125, 0, 0.125, 0),
-"times": PackedFloat32Array(0, 0.2)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:position:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-16, -0.125, 0, 0.125, 0, -16, -0.125, 0, 0.125, 0),
-"times": PackedFloat32Array(0, 0.2)
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jl73l"]
 _data = {
-"Front": SubResource("Animation_gcls2"),
-"Left": SubResource("Animation_aj8j8"),
-"RESET": SubResource("Animation_v3i27"),
-"Right": SubResource("Animation_h72rl")
+&"Front": SubResource("Animation_gcls2"),
+&"Left": SubResource("Animation_aj8j8"),
+&"RESET": SubResource("Animation_v3i27"),
+&"Right": SubResource("Animation_h72rl")
 }
 
 [node name="Player" type="CharacterBody2D"]
@@ -222,19 +135,19 @@ script = ExtResource("1_7xlu7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1, -16)
+position = Vector2(0, 0.396759)
 sprite_frames = SubResource("SpriteFrames_lv2kl")
-animation = &"Front"
+animation = &"Right"
 autoplay = "Front"
 
 [node name="RotationPivot" type="Node2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(0, 4)
 
 [node name="Hand" type="Node2D" parent="RotationPivot"]
 position = Vector2(13, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7)
+position = Vector2(0, 10)
 shape = SubResource("CircleShape2D_ge1wx")
 
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
@@ -247,9 +160,13 @@ script = ExtResource("4_5e7ua")
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("4_h70ni")
 
+[node name="ShipControlComponent" type="Node" parent="."]
+process_mode = 4
+script = ExtResource("6_3smsa")
+
 [node name="MoveAnimationComponent" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_jl73l")
+&"": SubResource("AnimationLibrary_jl73l")
 }
 script = ExtResource("6_h7mq5")
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c5sqxucg3wxo8"]
 
-[ext_resource type="Script" path="res://corpse.gd" id="1_eugjk"]
+[ext_resource type="Script" uid="uid://dr6n4lb8vutsg" path="res://corpse.gd" id="1_eugjk"]
 [ext_resource type="Texture2D" uid="uid://cyxk4i5xus6tl" path="res://Sprites/Hand.png" id="2_rtp8k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6pvis"]

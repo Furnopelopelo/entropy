@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cftuj5rfaruvg" path="res://Sprites/ChargePistol.png" id="1_dwk05"]
 [ext_resource type="FontFile" uid="uid://fuu286rsfkbf" path="res://Fonts/smallest_pixel-7.ttf" id="1_vuhu3"]
-[ext_resource type="Script" path="res://Scenes/node.gd" id="3_6b5dt"]
+[ext_resource type="Script" uid="uid://dvx8wt5o6kpbx" path="res://Scenes/node.gd" id="3_6b5dt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4awgn"]
 

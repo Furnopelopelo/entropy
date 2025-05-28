@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0jg2u17ylrnx"]
+[gd_scene load_steps=6 format=3 uid="uid://b0jg2u17ylrnx"]
 
-[ext_resource type="Script" path="res://Scripts/charge_bullet.gd" id="1_lgoam"]
+[ext_resource type="Script" uid="uid://dn6bf344fm4xq" path="res://Scripts/charge_bullet.gd" id="1_lgoam"]
 [ext_resource type="Texture2D" uid="uid://ctq42h8j8omnn" path="res://Sprites/ChargeBullet.png" id="1_xm74r"]
-[ext_resource type="Script" path="res://Scripts/Components/health_component.gd" id="3_8prec"]
-[ext_resource type="Script" path="res://Scripts/Components/move_component.gd" id="3_n83xc"]
-[ext_resource type="Script" path="res://Scripts/Components/hitbox_component.gd" id="4_mliqv"]
+[ext_resource type="Script" uid="uid://pbi6w6th1xe2" path="res://Scripts/Components/health_component.gd" id="3_8prec"]
+[ext_resource type="Script" uid="uid://d1fy0fhco5eje" path="res://Scripts/Components/hitbox_component.gd" id="4_mliqv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lscgp"]
 size = Vector2(4, 2)
@@ -15,11 +14,6 @@ script = ExtResource("1_lgoam")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_xm74r")
-
-[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
-script = ExtResource("3_n83xc")
-actor = NodePath("..")
-speed = 15000
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("3_8prec")

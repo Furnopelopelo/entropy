@@ -11,3 +11,4 @@ func _process(delta):
 	actor.velocity /= 1.5
 	
 	actor.move_and_slide()
+	$"../../Camera2D".position = actor.position

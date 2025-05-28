@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://iqlb1nn0jvcq"]
 
 [ext_resource type="Texture2D" uid="uid://dnroivqcknoyn" path="res://Sprites/Jukebox.png" id="1_gvm6q"]
-[ext_resource type="Script" path="res://Scripts/jukebox.gd" id="1_iy3uc"]
-[ext_resource type="Script" path="res://Scripts/Components/interaction_component.gd" id="2_y308j"]
-[ext_resource type="Script" path="res://Scripts/Components/outline_component.gd" id="3_kk0wu"]
+[ext_resource type="Script" uid="uid://t3tkk0x4xps8" path="res://Scripts/jukebox.gd" id="1_iy3uc"]
+[ext_resource type="Script" uid="uid://c3g8f4hgtal7d" path="res://Scripts/Components/interaction_component.gd" id="2_y308j"]
+[ext_resource type="Script" uid="uid://cabc4gnodadao" path="res://Scripts/Components/outline_component.gd" id="3_kk0wu"]
 [ext_resource type="Texture2D" uid="uid://kum2mk0452qx" path="res://Sprites/Note.png" id="5_n57kp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t2c00"]
@@ -24,8 +24,7 @@ animations = [{
 radius = 28.0
 
 [sub_resource type="Curve" id="Curve_0mnpn"]
-min_value = -200.0
-max_value = 200.0
+_limits = [-200.0, 200.0, 0.0, 1.0]
 _data = [Vector2(0, 10.989), 0.0, 0.0, 0, 0, Vector2(0.173333, 2.19778), -79.9201, 0.0, 0, 0]
 point_count = 2
 

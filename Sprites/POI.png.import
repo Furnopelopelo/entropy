@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxyxxuysg3ri2"
-path="res://.godot/imported/AstronautaNew2-Sheet.png-7e104944914845af6d8c6ccdb20cf9bf.ctex"
+uid="uid://ccco6t32oe8xd"
+path="res://.godot/imported/POI.png-43342695095a787d1b8eff2bf3cce2db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/AstronautaNew2-Sheet.png"
-dest_files=["res://.godot/imported/AstronautaNew2-Sheet.png-7e104944914845af6d8c6ccdb20cf9bf.ctex"]
+source_file="res://Sprites/POI.png"
+dest_files=["res://.godot/imported/POI.png-43342695095a787d1b8eff2bf3cce2db.ctex"]
 
 [params]
 

@@ -1,13 +1,13 @@
 [gd_scene load_steps=20 format=3 uid="uid://5sh8ysqtjphu"]
 
-[ext_resource type="Script" path="res://Scripts/robobo.gd" id="1_ggmin"]
+[ext_resource type="Script" uid="uid://bqae8j7plv1g0" path="res://Scripts/robobo.gd" id="1_ggmin"]
 [ext_resource type="Texture2D" uid="uid://cynevdj11eaow" path="res://Sprites/Robobo-Sheet.png" id="2_ufc4t"]
 [ext_resource type="Shader" uid="uid://cvnhg12jej166" path="res://Shaders/hit_flash.tres" id="2_vidyg"]
-[ext_resource type="Script" path="res://Scripts/Components/move_component.gd" id="3_7q4pd"]
-[ext_resource type="Script" path="res://Scripts/Components/health_component.gd" id="4_ta6m1"]
-[ext_resource type="Script" path="res://Scripts/Components/pathfinding_component.gd" id="5_iqnia"]
-[ext_resource type="Script" path="res://Scripts/Components/hit_flash_component.gd" id="5_itd1y"]
-[ext_resource type="Script" path="res://Scripts/Components/hitbox_component.gd" id="6_rku7w"]
+[ext_resource type="Script" uid="uid://cfxdxycv7rpmv" path="res://Scripts/Components/move_component.gd" id="3_7q4pd"]
+[ext_resource type="Script" uid="uid://pbi6w6th1xe2" path="res://Scripts/Components/health_component.gd" id="4_ta6m1"]
+[ext_resource type="Script" uid="uid://s15wwvfpqamx" path="res://Scripts/Components/pathfinding_component.gd" id="5_iqnia"]
+[ext_resource type="Script" uid="uid://hxvx3cq0frqf" path="res://Scripts/Components/hit_flash_component.gd" id="5_itd1y"]
+[ext_resource type="Script" uid="uid://d1fy0fhco5eje" path="res://Scripts/Components/hitbox_component.gd" id="6_rku7w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3kr8"]
 size = Vector2(10, 10)
@@ -102,8 +102,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_33rk8"]
 _data = {
-"RESET": SubResource("Animation_6cedt"),
-"hit_flash": SubResource("Animation_34r4d")
+&"RESET": SubResource("Animation_6cedt"),
+&"hit_flash": SubResource("Animation_34r4d")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4ek7"]

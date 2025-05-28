@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://kc2fi5eyiciq"]
 
-[ext_resource type="Script" path="res://Scenes/control_center.gd" id="1_ejb35"]
+[ext_resource type="Script" uid="uid://cgkrsuaw4a8qu" path="res://Scenes/control_center.gd" id="1_ejb35"]
 [ext_resource type="Texture2D" uid="uid://8w7hlus3x582" path="res://Sprites/ControlCenter-Sheet.png" id="1_t7tka"]
-[ext_resource type="Script" path="res://Scripts/Components/interaction_component.gd" id="2_qlfkc"]
-[ext_resource type="Script" path="res://Scripts/Components/outline_component.gd" id="3_6xeet"]
+[ext_resource type="Script" uid="uid://c3g8f4hgtal7d" path="res://Scripts/Components/interaction_component.gd" id="2_qlfkc"]
+[ext_resource type="Script" uid="uid://cabc4gnodadao" path="res://Scripts/Components/outline_component.gd" id="3_6xeet"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uu76j"]
 atlas = ExtResource("1_t7tka")
@@ -56,13 +56,12 @@ radius = 42.0119
 
 [node name="ControlCenter" type="StaticBody2D"]
 z_index = 5
-position = Vector2(0, -4)
 script = ExtResource("1_ejb35")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = -5
 texture_filter = 1
-position = Vector2(0, 4)
+position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_ew35y")
 autoplay = "default"
 frame_progress = 0.139979
@@ -70,11 +69,11 @@ frame_progress = 0.139979
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 5
 y_sort_enabled = true
-position = Vector2(0, 10.5)
+position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_oys31")
 
 [node name="InteractionComponent" type="Area2D" parent="." node_paths=PackedStringArray("outline_component")]
-position = Vector2(0, 4)
+position = Vector2(0, -1)
 script = ExtResource("2_qlfkc")
 outline_component = NodePath("../OutlineComponent")
 

@@ -9,10 +9,8 @@ var shader_material
 
 func _ready() -> void:
 	if actor:
-		print("DAJE OUTLINE")
 		shader_material = ShaderMaterial.new()
 		shader_material.shader = WHITE_OUTLINE
 		shader_material.resource_local_to_scene = true
 		shader_material.set_shader_parameter("outline_color", Vector4(7, 7, 21, 34))
-		
 		actor.material = shader_material

@@ -1,15 +1,15 @@
 extends CharacterBody2D
 class_name Player
 
-@onready var move_component: MoveComponent = $MoveComponent
-@onready var inventory_component: InventoryComponent = $InventoryComponent
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var inventory_ui: CanvasLayer = get_tree().root.get_node("Lobby/InventoryUI")
+var move_component: MoveComponent
+var inventory_component: InventoryComponent
+var animated_sprite: AnimatedSprite2D
+var inventory_ui: CanvasLayer
 
-@onready var movement_animation: AnimationPlayer = $MoveAnimationComponent
+var movement_animation: MoveAnimationComponent
 
-@onready var rotation_pivot: Node2D = $RotationPivot
-@onready var hand: Node2D = $RotationPivot/Hand
+var rotation_pivot: Node2D
+var hand: Node2D
 
 var direction : Vector2
 
@@ -18,6 +18,24 @@ var health : float = 100
 var any_item_equipped = false
 var equipped_item_index : int = -1
 
+
+var ship : CharacterBody2D
+
+
+var ship_controls : Node
+
+
+func _ready() -> void:
+	inventory_ui = get_tree().root.get_node("Lobby/InventoryUI")
+	move_component = $MoveComponent
+	ship_controls = $ShipControlComponent
+	inventory_component = $InventoryComponent
+	animated_sprite = $AnimatedSprite2D
+	movement_animation = $MoveAnimationComponent
+	rotation_pivot = $RotationPivot
+	hand = $RotationPivot/Hand
+	ship = $"../Ship"
+	
 func _physics_process(_delta: float) -> void:
 	direction = Input.get_vector("WalkLeft", "WalkRight", "WalkUp", "WalkDown")
 	move_component.direction = direction
@@ -28,7 +46,9 @@ func _physics_process(_delta: float) -> void:
 	elif move_component.direction.x > 0:
 		animated_sprite.play("Right")
 		movement_animation.play_animation("Right")
-	if move_component.direction.y > 0 || move_component.direction == Vector2(0, 0):
+	else:
+		movement_animation.revert_animation()
+	if move_component.direction.y > 0:
 		animated_sprite.play("Front")
 		movement_animation.play_animation("Front")
 	elif move_component.direction.y < 0:
@@ -77,8 +97,25 @@ func drop_item(item):
 	if inventory_ui.selected_item_index < equipped_item_index:
 		equipped_item_index -= 1
 
+
+func interact_with_terminal()->void:
+	if ship.visible:
+		ship.hide()
+		show()
+		$"../ShipInside".show()
+		move_component.process_mode = Node.PROCESS_MODE_INHERIT
+		ship_controls.process_mode = Node.PROCESS_MODE_DISABLED
+	else:
+		ship.show()
+		hide()
+		$"../ShipInside".hide()
+		move_component.process_mode = Node.PROCESS_MODE_DISABLED
+		ship_controls.process_mode = Node.PROCESS_MODE_INHERIT
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("shoot"):
 		if hand.get_child_count() > 0:
 			hand.get_child(0).shoot(rotation_pivot.rotation)
-		
+
+
+#$"../CanvasLayer/Label".text = "Entropy Level: " + str(Vector2.ZERO.distance_squared_to(ship.position/1000) / 2500)

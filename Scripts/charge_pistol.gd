@@ -18,15 +18,13 @@ func _ready() -> void:
 	item.description = "Pistol"
 	item.is_equipable = true
 	
-func shoot(_rotation):
+func shoot(_rotation : float):
 	#if not firerate_timer.is_stopped():
 		#return
 	#firerate_timer.start()
 	
 	var shooted_bullet = spawner_component.spawn(shooting_point.global_position)
-	shooted_bullet.rotation = get_parent().rotation
-	shooted_bullet.move_component.direction = Vector2.RIGHT.rotated(_rotation)
-	shooted_bullet.rotation = _rotation
+	shooted_bullet.in_direction(_rotation)
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:

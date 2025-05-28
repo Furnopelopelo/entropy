@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c28egmqahn8xt"]
 
-[ext_resource type="Script" path="res://Scripts/inventory_ui.gd" id="1_any4n"]
+[ext_resource type="Script" uid="uid://cnoe7yi2yo41o" path="res://Scripts/inventory_ui.gd" id="1_any4n"]
 [ext_resource type="FontFile" uid="uid://fuu286rsfkbf" path="res://Fonts/smallest_pixel-7.ttf" id="3_n10xw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wa3u7"]

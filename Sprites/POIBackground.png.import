@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brkc0dquyicq5"
-path="res://.godot/imported/LobbyWall.png-72e5a2a32b5b779ca6e5cd4ec67730a6.ctex"
+uid="uid://b0a1a3k4xrvvr"
+path="res://.godot/imported/POIBackground.png-b8d0e76238d80bc7bb589443d9227976.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/LobbyWall.png"
-dest_files=["res://.godot/imported/LobbyWall.png-72e5a2a32b5b779ca6e5cd4ec67730a6.ctex"]
+source_file="res://Sprites/POIBackground.png"
+dest_files=["res://.godot/imported/POIBackground.png-b8d0e76238d80bc7bb589443d9227976.ctex"]
 
 [params]
 

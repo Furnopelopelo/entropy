@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://jbi5y6wbqvty"]
 
 [ext_resource type="Texture2D" uid="uid://b40ywt3lg8tqp" path="res://Sprites/Toilet.png" id="1_oc5ox"]
-[ext_resource type="Script" path="res://Scripts/Components/interaction_component.gd" id="2_3sg24"]
-[ext_resource type="Script" path="res://Scripts/Components/outline_component.gd" id="3_6ubmt"]
+[ext_resource type="Script" uid="uid://c3g8f4hgtal7d" path="res://Scripts/Components/interaction_component.gd" id="2_3sg24"]
+[ext_resource type="Script" uid="uid://cabc4gnodadao" path="res://Scripts/Components/outline_component.gd" id="3_6ubmt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nhqxu"]
 animations = [{
